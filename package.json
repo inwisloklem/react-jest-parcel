@@ -1,0 +1,121 @@
+{
+  "name": "react-jest-parcel",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.4.7",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.0.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "eslint": "^5.12.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-jsx": "^6.0.2",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-import-resolver-node": "^0.3.2",
+    "eslint-plugin-html": "^5.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-watch": "^4.0.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.0.0",
+    "jest-pnp-resolver": "^1.0.2",
+    "jest-resolve": "23.6.0",
+    "jest-runner-eslint": "^0.7.1",
+    "jsdom": "^13.2.0",
+    "node-sass": "^4.11.0",
+    "object-assign": "^4.1.1",
+    "parcel-bundler": "^1.11.0",
+    "postcss-modules": "^1.4.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-app-polyfill": "^0.2.0",
+    "react-dom": "^16.7.0",
+    "scheduler": "^0.12.0"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest --watchAll"
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "standard-react"
+    ],
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jest": true
+    },
+    "plugins": [
+      "html"
+    ]
+  },
+  "standard": {
+    "env": [
+      "browser",
+      "es6",
+      "jest"
+    ],
+    "parser": "babel-eslint"
+  },
+  "jest": {
+    "projects": [
+      {
+        "displayName": "lint",
+        "runner": "jest-runner-eslint",
+        "testMatch": [
+          "<rootDir>/src/**/*.{js,jsx}"
+        ]
+      },
+      {
+        "displayName": "test",
+        "resolver": "jest-pnp-resolver",
+        "setupFiles": [
+          "react-app-polyfill/jsdom"
+        ],
+        "setupFilesAfterEnv": [
+          "<rootDir>/setupTests.js"
+        ],
+        "testMatch": [
+          "<rootDir>/src/**/*.test.js"
+        ],
+        "testEnvironment": "jsdom",
+        "testURL": "http://localhost",
+        "transform": {
+          "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+          "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+          "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+        },
+        "transformIgnorePatterns": [
+          "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+          "^.+\\.module\\.(css|sass|scss)$"
+        ],
+        "moduleNameMapper": {
+          "^react-native$": "react-native-web",
+          "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+        },
+        "moduleFileExtensions": [
+          "web.js",
+          "js",
+          "web.ts",
+          "ts",
+          "web.tsx",
+          "tsx",
+          "json",
+          "web.jsx",
+          "jsx",
+          "node"
+        ]
+      }
+    ],
+    "watchPlugins": ["jest-runner-eslint/watch-fix"]
+  }
+}
